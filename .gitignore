@@ -1,5 +1,6 @@
-#virtual environment folder
+#virtual environment folders
 /venv
+/__pycache__
 
 #VS code workspace folder
 /.vscode
