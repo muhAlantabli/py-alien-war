@@ -1,10 +1,10 @@
 """Startup point
 """
 
-import sys
 import pygame
 from settings import Settings
 from ship import Ship
+import game_functions as gf
 
 
 def run_game():
@@ -20,17 +20,8 @@ def run_game():
 
     # The main loop of the game
     while True:
-        # Watch the keyboard and mouse events
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        # Fill the screen with given color & draw ship
-        screen.fill(game_settings.bg_color)
-        ship.draw()
-        
-        # Update the screen surface
-        pygame.display.flip()
+        gf.check_events()
+        gf.update_screen(game_settings, screen, ship)
 
 
 if __name__ == "__main__":
