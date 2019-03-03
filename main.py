@@ -3,16 +3,14 @@
 
 import sys
 import pygame
-
+from settings import Settings
 
 def run_game():
-    """Initialize game and create screen object."""
+    """Initialize game, settings and create screen object."""
     pygame.init()
-    screen = pygame.display.set_mode((1200, 800))
-    pygame.display.set_caption("Alien War")
-
-    # Set the background color (light grey)
-    bg_color = (230, 230, 230)
+    game_settings = Settings()
+    screen = pygame.display.set_mode((game_settings.screen_width, game_settings.screen_height))
+    pygame.display.set_caption(game_settings.game_name)
 
     # The main loop of the game
     while True:
@@ -22,7 +20,7 @@ def run_game():
                 sys.exit()
 
         # Fill the screen with given color
-        screen.fill(bg_color)
+        screen.fill(game_settings.bg_color)
 
         # Update the screen surface
         pygame.display.flip()
